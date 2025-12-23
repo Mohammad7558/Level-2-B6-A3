@@ -86,7 +86,7 @@ This project applies several important SQL concepts, including:
 
 - **Entity Relationship Diagram (ERD)**  
   Visual representation of the database schema and relationships  
-  https://dbdiagram.io/d/69496b5661d95806cf350adb
+  https://drawsql.app/teams/mohammad-69/diagrams/vehicle-rental-system-as-3
 
 ---
 
