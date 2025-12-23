@@ -1,124 +1,95 @@
-# Vehicle Booking System - Database Queries
-
-## Project Overview
-
-This project contains SQL queries for a **Vehicle Booking System** database. The system manages vehicle rentals, customer bookings, and vehicle inventory through a relational database structure.
+# Vehicle Rental System  
+**SQL Database Assignment**
 
 ---
 
-## Database Structure
+## Overview
+The Vehicle Rental System is a relational database–based project designed to model the core operations of a real-world vehicle rental business. The system focuses on managing users, vehicles, and bookings while maintaining data integrity and supporting analytical queries.
+
+This project demonstrates practical SQL usage for handling rental workflows, availability tracking, and historical data analysis.
+
+---
+
+## System Features
+- User management with role-based distinction (Admin and Customer)
+- Vehicle inventory management with availability tracking
+- Booking and rental history management
+- Query-based reporting for business insights
+
+---
+
+## Database Schema
 
 ### Tables
 
-1. **users** - Customer information
-   - `user_id` - Unique customer identifier
-   - `name` - Customer name
+#### 1. Users
+Stores information about system users.
+- User ID (Primary Key)
+- Name
+- Contact details
+- Role (Admin / Customer)
 
-2. **vehicle** - Vehicle inventory
-   - `vehicle_id` - Unique vehicle identifier
-   - `name` - Vehicle name
-   - `type` - Vehicle type (e.g., 'car', 'truck', 'van')
-   - `status` - Current status ('available', 'booked', 'maintenance')
+#### 2. Vehicles
+Stores information about rental vehicles.
+- Vehicle ID (Primary Key)
+- Make
+- Model
+- Vehicle type
+- Availability status
 
-3. **bookings** - Booking records
-   - `booking_id` - Unique booking identifier
-   - `user_id` - Reference to customer (foreign key)
-   - `vehicle_id` - Reference to vehicle (foreign key)
-   - `start_date` - Booking start date
-   - `end_date` - Booking end date
-   - `total_cost` - Booking cost
-
----
-
-## SQL Queries Overview
-
-This project includes 4 main SQL queries for different business purposes:
-
-### 1. **Get Complete Booking Information**
-Retrieves all bookings with customer and vehicle details.
-- **Use Case**: Booking reports, customer history, administrative overview
-- **Tables**: bookings, users, vehicle
-- **Type**: JOIN query with multiple tables
-
-### 2. **Find Vehicles with No Bookings**
-Identifies unused vehicles in the inventory.
-- **Use Case**: Inventory management, identifying idle assets
-- **Tables**: vehicle, bookings
-- **Type**: NOT EXISTS subquery
-
-### 3. **Find Available Car Vehicles**
-Lists all cars currently available for booking.
-- **Use Case**: Customer search, availability checking
-- **Tables**: vehicle
-- **Type**: Simple WHERE filtering
-
-### 4. **Get Vehicles with Multiple Bookings**
-Shows popular vehicles with more than 2 bookings.
-- **Use Case**: Analytics, identifying high-demand vehicles
-- **Tables**: bookings, vehicle
-- **Type**: GROUP BY aggregation with HAVING clause
+#### 3. Bookings
+Manages rental transactions.
+- Booking ID (Primary Key)
+- User ID (Foreign Key)
+- Vehicle ID (Foreign Key)
+- Rental start date
+- Rental end date
+- Booking status
 
 ---
 
-## Files in This Project
+## Relationships
+- One user can create multiple bookings (One-to-Many)
+- One vehicle can be booked multiple times (One-to-Many)
+- Each booking is associated with exactly one user and one vehicle
 
-- **queries.sql** - All SQL queries used in the system
-- **QUERIES_EXPLANATION.md** - Detailed explanation of each query
-- **README.md** - This file
-
----
-
-## Key SQL Concepts
-
-- **INNER JOIN** - Combining data from multiple tables
-- **NOT EXISTS** - Filtering records based on non-existence in subqueries
-- **GROUP BY** - Aggregating data by categories
-- **HAVING** - Filtering aggregated results
-- **COUNT()** - Counting records
-- **WHERE & AND** - Conditional filtering
-- **ORDER BY** - Sorting results
+These relationships are enforced using foreign key constraints to ensure referential integrity.
 
 ---
 
-## How to Use
+## SQL Concepts Applied
+This project applies several important SQL concepts, including:
 
-1. Open your database management system (MySQL, PostgreSQL, SQL Server, etc.)
-2. Copy the desired query from `queries.sql`
-3. Execute the query against your vehicle booking database
-4. Refer to `QUERIES_EXPLANATION.md` for detailed information about each query
+- **INNER JOIN**  
+  Used to retrieve related data across Users, Vehicles, and Bookings tables.
 
----
+- **NOT EXISTS**  
+  Applied to identify records based on the absence of related data.
 
-## Documentation
+- **WHERE Clause**  
+  Filters records according to specific conditions.
 
-For **detailed explanations** of each query, including:
-- Purpose and use cases
-- Line-by-line code breakdown
-- Expected results
+- **GROUP BY & HAVING**  
+  Used for aggregation and conditional filtering of grouped data.
 
-See [QUERIES_EXPLANATION.md](QUERIES_EXPLANATION.md)
-
----
-
-## Project Assignment
-
-**Assignment #3** - Vehicle Booking System Database Queries
-
-This project demonstrates practical SQL skills including:
-- Multi-table joins
-- Subqueries and filtering
-- Aggregation and grouping
-- Business logic implementation through queries
+- **Primary and Foreign Keys**  
+  Ensure data consistency and enforce relationships between tables.
 
 ---
 
-## Notes
+## Project Files
+- `queries.sql`  
+  Contains all SQL queries including inserts, joins, filters, and analytical queries.
 
-- All queries are optimized for readability and performance
-- Comments are provided in the explanation document
-- Modify queries as needed for your specific database schema
-- Ensure proper foreign key relationships exist before running queries
+- `README.md`  
+  Project documentation describing the database structure and logic.
+
+- **Entity Relationship Diagram (ERD)**  
+  Visual representation of the database schema and relationships  
+  https://dbdiagram.io/d/69496b5661d95806cf350adb
 
 ---
 
-**Last Updated:** December 2025
+## Author
+**Mohammad Bin Amin**  
+Software Developer
